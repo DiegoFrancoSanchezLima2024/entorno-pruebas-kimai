@@ -1,0 +1,17 @@
+version: "2.1"
+services:
+  kimai:
+    image: lscr.io/linuxserver/kimai:latest
+    container_name: kimai
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Santiago # Ajusta esto según la zona horaria que necesites
+    volumes:
+      - kimai_data:/config
+    ports:
+      - 8000:80
+    restart: unless-stopped
+
+volumes:
+  kimai_data:
